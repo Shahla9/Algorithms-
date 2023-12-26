@@ -1,0 +1,13 @@
+def merge(a_array, b_array):
+    if len(a_array) == 0:
+        return b_array
+    if len(b_array) == 0:
+        return a_array
+    if a_array[0] < b_array[0]:
+        return [a_array[0]] + merge(a_array[1:], b_array)
+    else:
+        return [b_array[0]] + merge(a_array, b_array[1:])
+
+a_list = sorted([random.randint(0, MAX_RANDOM) for x in range(SAMPLE_NUMBER)])
+b_list = sorted([random.randint(0, MAX_RANDOM) for x in range(SAMPLE_NUMBER)])   
+print(merge(a_list, b_list))
