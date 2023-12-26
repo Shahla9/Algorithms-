@@ -1,0 +1,17 @@
+import random
+import time
+
+SAMPLE_SIZE = 1000*1000
+
+start_time = time.time()
+random_numbers = [random.randint(1, SAMPLE_SIZE) for _ in range(SAMPLE_SIZE)] 
+file_name = "random_numbers.txt" 
+
+with open(file_name, "w") as file:
+    for number in random_numbers:
+        file.write(str(number) + "\n")
+
+end_time = time.time()
+elapsed_time = end_time-start_time
+print("Random numbers have been generated and saved to", file_name)
+print(elapsed_time)
